@@ -1,0 +1,38 @@
+﻿*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  
+body {
+    display: flex;
+    justify-content: center; 
+}
+
+
+tr:nth-child(even) {
+    background: #F2F2F2;
+}
+
+tr:nth-child(odd) {
+    background: #FFF;
+}
+
+th, td {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.App-buttons-form{
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    top: 5px;
+    left: 0;
+    width: 100%;
+}
+
+.button-container{
+    margin-bottom: 20px;    
+}

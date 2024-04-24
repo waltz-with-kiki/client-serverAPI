@@ -1,0 +1,46 @@
+.EmployeesList{
+    margin-top: 50px;
+    padding: 5px;
+    height: 500px; 
+    overflow-y: auto;
+}
+
+.Project-buttons-form{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.EmployeeItem{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    border: 1px solid rgb(209, 241, 132);
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.EmployeeItem .removeButton {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.EmployeeItem .info {
+    display: flex;
+    flex-direction: column;
+}
+
+.isSelected2 {
+    background-color: rgb(250, 253, 235);
+}
+
+.page {
+    display: flex;
+    opacity: 1;
+    margin-top: 50px;
+}

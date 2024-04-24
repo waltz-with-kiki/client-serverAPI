@@ -1,0 +1,49 @@
+
+.page {
+    display: flex;
+    opacity: 1;
+    margin-top: 50px;
+}
+ 
+.Project-container {
+    position: relative;
+}
+
+.Project-buttons-form {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.Project-buttons-form > * + * {
+    margin-left: 10px; 
+}
+
+.ProjectList {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1000px;
+    justify-content: space-between; 
+    gap: 10px; 
+    margin-top: 50px; 
+    margin-bottom: 20px; 
+    border: 1px solid skyblue;
+    padding: 5px;
+}
+
+.ProjectItem {
+    width: calc(50% - 5px); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    border: 1px solid silver;
+    border-radius: 5px;
+}
+
+.isSelected {
+    background-color: rgb(227, 245, 252); 
+}
