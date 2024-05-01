@@ -1,6 +1,8 @@
-﻿using test.Server.Configuration.Classes;
+﻿using Microsoft.EntityFrameworkCore;
+using test.Server.Configuration.Classes;
 using test.Server.DAL.Interfaces;
 using test.Server.Models;
+using test.Server.Models.Base;
 using test.Server.Response;
 using test.Server.Response.Intefaces;
 using test.Server.Services.Interfaces;
@@ -14,6 +16,22 @@ namespace test.Server.Services
         public EmployeeService(IRepository<Employee> employeeRepository)
         {
             _RepEmployees = employeeRepository;
+        }
+        
+        public async Task<ICollection<Employee>> GetEmployees()
+        {
+            return await _RepEmployees.Items.ToListAsync();
+        }
+
+        public async Task<IBaseResponse<Employee>> RemoveEmployee(Entity entity)
+        {
+            await _RepEmployees.RemoveAsync(entity.Id);
+
+            return new BaseResponse<Employee>()
+            {
+                Description = "Сотрудник успешно удалён",
+                StatusCode = StatusCode.OK
+            };
         }
 
         public async Task<IBaseResponse<Employee>> AddNewEmployee(NewEmployeeWithoutId employee)

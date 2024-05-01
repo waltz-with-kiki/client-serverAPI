@@ -6,7 +6,8 @@ using test.Server.Models;
 using test.Server.Response;
 using test.Server.Response.Intefaces;
 using test.Server.Services.Interfaces;
-using static test.Server.Controllers.MainController;
+using Microsoft.EntityFrameworkCore;
+using test.Server.Models.Base;
 
 namespace test.Server.Services
 {
@@ -21,6 +22,25 @@ namespace test.Server.Services
             _RepEmployees = employeeRepository;
             _RepProjects = projectRepository;
         }
+
+
+        public async Task<ICollection<Project>> GetProjects()
+        {
+            return await _RepProjects.Items.ToListAsync();
+        }
+
+        public async Task<IBaseResponse<Project>> RemoveProject(Entity entity)
+        {
+            await _RepProjects.RemoveAsync(entity.Id);
+
+            return new BaseResponse<Project>()
+            {
+                Description = "Проект успешно удалён",
+                StatusCode = StatusCode.OK
+            };
+
+        }
+
         public async Task<IBaseResponse<Employee>> AddEmployeeToProjectAsync(int employeeId, int projectId)
         {
             var employee = await _RepEmployees.GetAsync(employeeId);

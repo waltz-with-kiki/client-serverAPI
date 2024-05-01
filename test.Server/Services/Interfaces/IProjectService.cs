@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using test.Server.Configuration.Classes;
 using test.Server.Models;
+using test.Server.Models.Base;
 using test.Server.Response;
 using test.Server.Response.Intefaces;
-using static test.Server.Controllers.MainController;
 
 namespace test.Server.Services.Interfaces
 {
@@ -15,6 +15,10 @@ namespace test.Server.Services.Interfaces
 
 
         Task<IBaseResponse<Project>> AddNewProject(NewProjectWithoutId newproject);
+
+        Task<IBaseResponse<Project>> RemoveProject(Entity entity);
+
+        Task<ICollection<Project>> GetProjects();
 
         Task<IBaseResponse<Project>> ChangeProject(ChangeProject changeproject);
 

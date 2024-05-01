@@ -27,7 +27,7 @@ const EmployeePage = () =>{
     },[])
 
     const fetchEmployees = async () =>{
-        const response = await axios.get('https://localhost:7253/api/main/employees');
+        const response = await axios.get('https://localhost:7253/api/employees/employees');
         const data = response.data;
         console.log(data);
         setEmployees(data);
@@ -39,7 +39,7 @@ const EmployeePage = () =>{
           return
         }
 
-        await axios.post('https://localhost:7253/api/main/newemployee', {
+        await axios.post('https://localhost:7253/api/employees/newemployee', {
             Name: NewEmployee.name,
             Surname: NewEmployee.surname,
             Patronymic: NewEmployee.patronymic,
@@ -86,7 +86,7 @@ const EmployeePage = () =>{
         console.log(selectedEmployee);
         console.log(ChangeEmployee);
 
-        await axios.post('https://localhost:7253/api/main/changeemployee', {
+          await axios.post('https://localhost:7253/api/employees/changeemployee', {
             Id: selectedEmployee.id,
             Name: ChangeEmployee.name,
             Surname: ChangeEmployee.surname,
@@ -109,7 +109,7 @@ const EmployeePage = () =>{
 
         console.log(selectedEmployee);
 
-        await axios.post('https://localhost:7253/api/main/removeemployee', {
+          await axios.post('https://localhost:7253/api/employees/removeemployee', {
             Id: selectedEmployee.id,
           })
           .then(function (response) {

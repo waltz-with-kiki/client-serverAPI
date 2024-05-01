@@ -43,7 +43,11 @@ export default defineConfig({
     },
     server: {
         proxy: {
-            '^/maincontroller': {
+            '^/projectscontroller': {
+                target,
+                secure: false
+            },
+            '^/employeescontroller': {
                 target,
                 secure: false
             }

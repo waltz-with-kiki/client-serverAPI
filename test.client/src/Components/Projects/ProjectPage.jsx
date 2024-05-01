@@ -42,14 +42,14 @@ const ProjectPage = () =>{
     }, []);
 
     const fetchProjects = async () =>{
-            const response = await axios.get('https://localhost:7253/api/main/projects');
+            const response = await axios.get('https://localhost:7253/api/projects/projects');
             const data = response.data;
             console.log(data);
             setProjects(data);
     }
 
     const fetchEmployees = async () =>{
-        const response = await axios.get('https://localhost:7253/api/main/employees');
+        const response = await axios.get('https://localhost:7253/api/employees/employees');
         const data = response.data;
         console.log(data);
         setEmployees(data);
@@ -82,7 +82,7 @@ const ProjectPage = () =>{
       if (selectedAddEmployee == null){
         return;
       }
-      await axios.post('https://localhost:7253/api/main/addinproject', {
+      await axios.post('https://localhost:7253/api/projects/addinproject', {
         IdEmployee: selectedAddEmployee,
         IdProject: selectedProject.id
       })
@@ -106,7 +106,7 @@ const ProjectPage = () =>{
       if (employee == null){
         return;
       }
-      await axios.post('https://localhost:7253/api/main/removeinproject', {
+      await axios.post('https://localhost:7253/api/projects/removeinproject', {
         IdEmployee: employee.id,
         IdProject: selectedProject.id
       })
@@ -126,7 +126,7 @@ const ProjectPage = () =>{
       if(!await(isValidProject(newproject))){
         return;
       }
-        await axios.post('https://localhost:7253/api/main/newproject', {
+        await axios.post('https://localhost:7253/api/projects/newproject', {
             ProjectName: newproject.projectName,
             CustomerCompany: newproject.customerCompany,
             CompanyPerformer: newproject.companyPerformer,
@@ -150,7 +150,7 @@ const ProjectPage = () =>{
       if(!await (isValidProject(changeproject))){
         return;
       }
-       await axios.post('https://localhost:7253/api/main/changeproject', {
+       await axios.post('https://localhost:7253/api/projects/changeproject', {
             Id: selectedProject.id,
             ProjectName: changeproject.projectName,
             CustomerCompany: changeproject.customerCompany,
@@ -174,7 +174,7 @@ const ProjectPage = () =>{
 
     const RemoveProject = async() =>{
       console.log(selectedProject);
-        await axios.post('https://localhost:7253/api/main/removeproject', {
+        await axios.post('https://localhost:7253/api/projects/removeproject', {
             Id: selectedProject.id,
           })
           .then(function (response) {
